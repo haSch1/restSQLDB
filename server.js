@@ -52,6 +52,16 @@ app.get('/addmaik', (req, res) => {
     });
 });
 
+//select *
+app.get('/getfollower', (req, res) => {
+    let sql = 'select * from follower';
+    db.query(sql, (err ,result) =>{
+        if(err) throw err;
+        console.log(result);
+        res.send('follower werden angezeigt');
+    });
+});
+
 app.listen('3000', () =>{
     console.log('harrys server is running');
 })
