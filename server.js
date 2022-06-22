@@ -13,6 +13,7 @@ const db = mysql.createConnection({
 db.connect((err) => {
     // if(err) throw err;
     // console.log('MySQL connected');
+
     try {
         console.log('MySQL connected')
     } catch (error) {
@@ -41,13 +42,13 @@ app.get('/createtablefollower', (req, res) => {
 });
 
 //insert follower1
-app.get('/addfollower1', (req, res) => {
-    let post = {title: 'follower one', body: 'Thisis follower nummber 1'};
-    let sql = 'insert into follower set?';
-    db.query(sql, post, (err ,result) =>{
+app.get('/addmaik', (req, res) => {
+    let post = {name: 'maik'};
+    let sql = 'insert into follower set ?';// ? platzhalter
+    let query = db.query(sql, post, (err ,result) =>{
         if(err) throw err;
         console.log(result);
-        res.send('follower 1 inserted');
+        res.send('maik inserted');
     });
 });
 
